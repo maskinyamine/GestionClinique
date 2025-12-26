@@ -1,0 +1,80 @@
+@page "/patients/create"
+@page "/patients/edit/{id:int}"
+@using GestionClinique.Shared.Models
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>@(Id == 0 ? "Créer" : "Modifier") Patient</PageTitle>
+
+<h1>@(Id == 0 ? "Nouveau" : "Modifier") Patient</h1>
+
+<EditForm Model="@patient" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <InputText id="nom" class="form-control" @bind-Value="patient.Nom" />
+    </div>
+
+    <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom</label>
+        <InputText id="prenom" class="form-control" @bind-Value="patient.Prenom" />
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <InputText id="email" class="form-control" @bind-Value="patient.Email" />
+    </div>
+
+    <div class="mb-3">
+        <label for="telephone" class="form-label">Téléphone</label>
+        <InputText id="telephone" class="form-control" @bind-Value="patient.Telephone" />
+    </div>
+
+    <div class="mb-3">
+        <label for="adresse" class="form-label">Adresse</label>
+        <InputText id="adresse" class="form-control" @bind-Value="patient.Adresse" />
+    </div>
+    
+    <div class="mb-3">
+        <label for="dateNaissance" class="form-label">Date de Naissance</label>
+        <InputDate id="dateNaissance" class="form-control" @bind-Value="patient.DateNaissance" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a href="patients" class="btn btn-secondary">Annuler</a>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Patient patient = new Patient { DateNaissance = DateTime.Today };
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Id != 0)
+        {
+            var result = await Http.GetFromJsonAsync<Patient>($"api/patients/{Id}");
+            if (result != null)
+            {
+                patient = result;
+            }
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (Id == 0)
+        {
+            await Http.PostAsJsonAsync("api/patients", patient);
+        }
+        else
+        {
+            await Http.PutAsJsonAsync($"api/patients/{Id}", patient);
+        }
+
+        Navigation.NavigateTo("patients");
+    }
+}

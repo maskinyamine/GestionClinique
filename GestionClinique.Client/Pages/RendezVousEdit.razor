@@ -1,0 +1,107 @@
+@page "/rendezvous/create"
+@page "/rendezvous/edit/{id:int}"
+@using GestionClinique.Shared.Models
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>@(Id == 0 ? "Créer" : "Modifier") Rendez-Vous</PageTitle>
+
+<h1>@(Id == 0 ? "Nouveau" : "Modifier") Rendez-Vous</h1>
+
+<EditForm Model="@rendezVous" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="dateHeure" class="form-label">Date et Heure</label>
+        <InputDate id="dateHeure" class="form-control" @bind-Value="rendezVous.DateHeure" />
+    </div>
+
+    <div class="mb-3">
+        <label for="patient" class="form-label">Patient</label>
+        <InputSelect id="patient" class="form-control" @bind-Value="rendezVous.PatientId">
+            <option value="">-- Sélectionner un patient --</option>
+            @if (patients != null)
+            {
+                foreach (var p in patients)
+                {
+                    <option value="@p.Id">@p.Nom @p.Prenom</option>
+                }
+            }
+        </InputSelect>
+    </div>
+
+    <div class="mb-3">
+        <label for="medecin" class="form-label">Médecin</label>
+        <InputSelect id="medecin" class="form-control" @bind-Value="rendezVous.MedecinId">
+            <option value="">-- Sélectionner un médecin --</option>
+            @if (medecins != null)
+            {
+                foreach (var m in medecins)
+                {
+                    <option value="@m.Id">Dr. @m.Nom @m.Specialite</option>
+                }
+            }
+        </InputSelect>
+    </div>
+
+    <div class="mb-3">
+        <label for="motif" class="form-label">Motif</label>
+        <InputText id="motif" class="form-control" @bind-Value="rendezVous.Motif" />
+    </div>
+    
+    <div class="mb-3">
+        <label for="statut" class="form-label">Statut</label>
+        <InputSelect id="statut" class="form-control" @bind-Value="rendezVous.Statut">
+            <option value="Planifié">Planifié</option>
+            <option value="Confirmé">Confirmé</option>
+            <option value="Annulé">Annulé</option>
+            <option value="Terminé">Terminé</option>
+        </InputSelect>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a href="rendezvous" class="btn btn-secondary">Annuler</a>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private RendezVous rendezVous = new RendezVous { DateHeure = DateTime.Now };
+    private List<Patient>? patients;
+    private List<Medecin>? medecins;
+
+    protected override async Task OnInitializedAsync()
+    {
+        patients = await Http.GetFromJsonAsync<List<Patient>>("api/patients");
+        medecins = await Http.GetFromJsonAsync<List<Medecin>>("api/medecins");
+
+        if (Id != 0)
+        {
+            var result = await Http.GetFromJsonAsync<RendezVous>($"api/rendezvous/{Id}");
+            if (result != null)
+            {
+                rendezVous = result;
+            }
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        // Ensure relationships are null to avoid cycles or validation errors on server if not handling attached entities
+        rendezVous.Patient = null;
+        rendezVous.Medecin = null;
+
+        if (Id == 0)
+        {
+            await Http.PostAsJsonAsync("api/rendezvous", rendezVous);
+        }
+        else
+        {
+            await Http.PutAsJsonAsync($"api/rendezvous/{Id}", rendezVous);
+        }
+
+        Navigation.NavigateTo("rendezvous");
+    }
+}

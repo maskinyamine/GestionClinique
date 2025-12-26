@@ -1,0 +1,67 @@
+@page "/rendezvous"
+@using GestionClinique.Shared.Models
+@inject HttpClient Http
+
+<PageTitle>Rendez-Vous</PageTitle>
+
+<h1>Liste des Rendez-Vous</h1>
+
+<p>
+    <a href="rendezvous/create" class="btn btn-primary">Nouveau Rendez-Vous</a>
+</p>
+
+@if (rendezVousList == null)
+{
+    <p><em>Chargement...</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Patient</th>
+                <th>Médecin</th>
+                <th>Motif</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rdv in rendezVousList)
+            {
+                <tr>
+                    <td>@rdv.DateHeure.ToString("g")</td>
+                    <td>@(rdv.Patient?.Nom + " " + rdv.Patient?.Prenom)</td>
+                    <td>@(rdv.Medecin?.Nom + " " + rdv.Medecin?.Prenom)</td>
+                    <td>@rdv.Motif</td>
+                    <td>@rdv.Statut</td>
+                    <td>
+                        <a href="rendezvous/edit/@rdv.Id" class="btn btn-secondary btn-sm">Editer</a>
+                        <button class="btn btn-danger btn-sm" @onclick="@(() => DeleteRdv(rdv.Id))">Supprimer</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<RendezVous>? rendezVousList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadRendezVous();
+    }
+
+    private async Task LoadRendezVous()
+    {
+        rendezVousList = await Http.GetFromJsonAsync<List<RendezVous>>("api/rendezvous");
+    }
+
+    private async Task DeleteRdv(int id)
+    {
+         await Http.DeleteAsync($"api/rendezvous/{id}");
+         await LoadRendezVous();
+    }
+}

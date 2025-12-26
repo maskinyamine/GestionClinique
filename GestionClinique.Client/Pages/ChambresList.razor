@@ -1,0 +1,73 @@
+@page "/chambres"
+@inject HttpClient Http
+
+<PageTitle>Chambres</PageTitle>
+
+<h1>Liste des Chambres</h1>
+
+<p>
+    <a href="chambres/create" class="btn btn-primary">Nouvelle Chambre</a>
+</p>
+
+@if (chambres == null)
+{
+    <p><em>Chargement...</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Numéro</th>
+                <th>Type</th>
+                <th>Prix Journalier</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var chambre in chambres)
+            {
+                <tr>
+                    <td>@chambre.Numero</td>
+                    <td>@chambre.Type</td>
+                    <td>@chambre.PrixJournalier.ToString("C")</td>
+                    <td>
+                        @if (chambre.EstOccupe)
+                        {
+                            <span class="badge bg-danger">Occupée</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-success">Disponible</span>
+                        }
+                    </td>
+                    <td>
+                        <a href="chambres/edit/@chambre.Id" class="btn btn-secondary btn-sm">Editer</a>
+                        <button class="btn btn-danger btn-sm" @onclick="@(() => DeleteChambre(chambre.Id))">Supprimer</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Chambre>? chambres;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadChambres();
+    }
+
+    private async Task LoadChambres()
+    {
+        chambres = await Http.GetFromJsonAsync<List<Chambre>>("api/chambres");
+    }
+
+    private async Task DeleteChambre(int id)
+    {
+         await Http.DeleteAsync($"api/chambres/{id}");
+         await LoadChambres();
+    }
+}

@@ -1,0 +1,74 @@
+@page "/medecins/create"
+@page "/medecins/edit/{id:int}"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>@(Id == 0 ? "Créer" : "Modifier") Médecin</PageTitle>
+
+<h1>@(Id == 0 ? "Nouveau" : "Modifier") Médecin</h1>
+
+<EditForm Model="@medecin" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <InputText id="nom" class="form-control" @bind-Value="medecin.Nom" />
+    </div>
+
+    <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom</label>
+        <InputText id="prenom" class="form-control" @bind-Value="medecin.Prenom" />
+    </div>
+
+    <div class="mb-3">
+        <label for="specialite" class="form-label">Spécialité</label>
+        <InputText id="specialite" class="form-control" @bind-Value="medecin.Specialite" />
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <InputText id="email" class="form-control" @bind-Value="medecin.Email" />
+    </div>
+
+    <div class="mb-3">
+        <label for="telephone" class="form-label">Téléphone</label>
+        <InputText id="telephone" class="form-control" @bind-Value="medecin.Telephone" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a href="medecins" class="btn btn-secondary">Annuler</a>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Medecin medecin = new Medecin();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Id != 0)
+        {
+            var result = await Http.GetFromJsonAsync<Medecin>($"api/medecins/{Id}");
+            if (result != null)
+            {
+                medecin = result;
+            }
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (Id == 0)
+        {
+            await Http.PostAsJsonAsync("api/medecins", medecin);
+        }
+        else
+        {
+            await Http.PutAsJsonAsync($"api/medecins/{Id}", medecin);
+        }
+
+        Navigation.NavigateTo("medecins");
+    }
+}

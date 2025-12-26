@@ -1,0 +1,62 @@
+@page "/medicaments"
+@inject HttpClient Http
+
+<PageTitle>Médicaments</PageTitle>
+
+<h1>Liste des Médicaments</h1>
+
+<p>
+    <a href="medicaments/create" class="btn btn-primary">Nouveau Médicament</a>
+</p>
+
+@if (medicaments == null)
+{
+    <p><em>Chargement...</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var medicament in medicaments)
+            {
+                <tr>
+                    <td>@medicament.Nom</td>
+                    <td>@medicament.Description</td>
+                    <td>@medicament.Prix.ToString("C")</td>
+                    <td>
+                        <a href="medicaments/edit/@medicament.Id" class="btn btn-secondary btn-sm">Editer</a>
+                        <button class="btn btn-danger btn-sm" @onclick="@(() => DeleteMedicament(medicament.Id))">Supprimer</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Medicament>? medicaments;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadMedicaments();
+    }
+
+    private async Task LoadMedicaments()
+    {
+        medicaments = await Http.GetFromJsonAsync<List<Medicament>>("api/medicaments");
+    }
+
+    private async Task DeleteMedicament(int id)
+    {
+         await Http.DeleteAsync($"api/medicaments/{id}");
+         await LoadMedicaments();
+    }
+}

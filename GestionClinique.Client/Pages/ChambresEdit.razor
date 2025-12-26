@@ -1,0 +1,73 @@
+@page "/chambres/create"
+@page "/chambres/edit/{id:int}"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>@(Id == 0 ? "Créer" : "Modifier") Chambre</PageTitle>
+
+<h1>@(Id == 0 ? "Nouvelle" : "Modifier") Chambre</h1>
+
+<EditForm Model="@chambre" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="numero" class="form-label">Numéro</label>
+        <InputText id="numero" class="form-control" @bind-Value="chambre.Numero" />
+    </div>
+
+    <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <InputSelect id="type" class="form-control" @bind-Value="chambre.Type">
+            <option value="Simple">Simple</option>
+            <option value="Double">Double</option>
+            <option value="VIP">VIP</option>
+        </InputSelect>
+    </div>
+
+    <div class="mb-3">
+        <label for="prix" class="form-label">Prix Journalier</label>
+        <InputNumber id="prix" class="form-control" @bind-Value="chambre.PrixJournalier" />
+    </div>
+
+    <div class="mb-3 form-check">
+        <InputCheckbox id="occupe" class="form-check-input" @bind-Value="chambre.EstOccupe" />
+        <label for="occupe" class="form-check-label">Occupée</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a href="chambres" class="btn btn-secondary">Annuler</a>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Chambre chambre = new Chambre();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Id != 0)
+        {
+            var result = await Http.GetFromJsonAsync<Chambre>($"api/chambres/{Id}");
+            if (result != null)
+            {
+                chambre = result;
+            }
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (Id == 0)
+        {
+            await Http.PostAsJsonAsync("api/chambres", chambre);
+        }
+        else
+        {
+            await Http.PutAsJsonAsync($"api/chambres/{Id}", chambre);
+        }
+
+        Navigation.NavigateTo("chambres");
+    }
+}

@@ -1,0 +1,11 @@
+H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Shared\bin\Debug\net8.0\GestionClinique.Shared.deps.json
+H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Shared\bin\Debug\net8.0\GestionClinique.Shared.dll
+H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Shared\bin\Debug\net8.0\GestionClinique.Shared.pdb
+H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Shared\obj\Debug\net8.0\GestionClinique.Shared.GeneratedMSBuildEditorConfig.editorconfig
+H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Shared\obj\Debug\net8.0\GestionClinique.Shared.AssemblyInfoInputs.cache
+H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Shared\obj\Debug\net8.0\GestionClinique.Shared.AssemblyInfo.cs
+H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Shared\obj\Debug\net8.0\GestionClinique.Shared.csproj.CoreCompileInputs.cache
+H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Shared\obj\Debug\net8.0\GestionClinique.Shared.dll
+H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Shared\obj\Debug\net8.0\refint\GestionClinique.Shared.dll
+H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Shared\obj\Debug\net8.0\GestionClinique.Shared.pdb
+H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Shared\obj\Debug\net8.0\ref\GestionClinique.Shared.dll

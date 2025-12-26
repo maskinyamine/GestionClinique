@@ -1,0 +1,84 @@
+@page "/consultations/create"
+@page "/consultations/edit/{id:int}"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>@(Id == 0 ? "Créer" : "Modifier") Consultation</PageTitle>
+
+<h1>@(Id == 0 ? "Nouvelle" : "Modifier") Consultation</h1>
+
+<EditForm Model="@consultation" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="dateConsultation" class="form-label">Date de Consultation</label>
+        <InputDate id="dateConsultation" class="form-control" @bind-Value="consultation.DateConsultation" />
+    </div>
+
+    <div class="mb-3">
+        <label for="rendezVous" class="form-label">Rendez-Vous</label>
+        <InputSelect id="rendezVous" class="form-control" @bind-Value="consultation.RendezVousId">
+            <option value="">-- Sélectionner un rendez-vous --</option>
+            @if (rendezVousList != null)
+            {
+                foreach (var rdv in rendezVousList)
+                {
+                    <option value="@rdv.Id">RDV #@rdv.Id - @rdv.DateHeure.ToString("g")</option>
+                }
+            }
+        </InputSelect>
+    </div>
+
+    <div class="mb-3">
+        <label for="diagnostic" class="form-label">Diagnostic</label>
+        <InputTextArea id="diagnostic" class="form-control" @bind-Value="consultation.Diagnostic" rows="3" />
+    </div>
+
+    <div class="mb-3">
+        <label for="notes" class="form-label">Notes</label>
+        <InputTextArea id="notes" class="form-control" @bind-Value="consultation.Notes" rows="3" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a href="consultations" class="btn btn-secondary">Annuler</a>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Consultation consultation = new Consultation { DateConsultation = DateTime.Now };
+    private List<RendezVous>? rendezVousList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        rendezVousList = await Http.GetFromJsonAsync<List<RendezVous>>("api/rendezvous");
+
+        if (Id != 0)
+        {
+            var result = await Http.GetFromJsonAsync<Consultation>($"api/consultations/{Id}");
+            if (result != null)
+            {
+                consultation = result;
+            }
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        // Ensure relationships are null to avoid cycles
+        consultation.RendezVous = null;
+
+        if (Id == 0)
+        {
+            await Http.PostAsJsonAsync("api/consultations", consultation);
+        }
+        else
+        {
+            await Http.PutAsJsonAsync($"api/consultations/{Id}", consultation);
+        }
+
+        Navigation.NavigateTo("consultations");
+    }
+}

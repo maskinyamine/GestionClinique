@@ -1,0 +1,73 @@
+@page "/factures"
+@inject HttpClient Http
+
+<PageTitle>Factures</PageTitle>
+
+<h1>Liste des Factures</h1>
+
+<p>
+    <a href="factures/create" class="btn btn-primary">Nouvelle Facture</a>
+</p>
+
+@if (factures == null)
+{
+    <p><em>Chargement...</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Consultation</th>
+                <th>Montant Total</th>
+                <th>Statut Paiement</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var facture in factures)
+            {
+                <tr>
+                    <td>@facture.DateFacture.ToString("d")</td>
+                    <td>Consultation #@facture.ConsultationId</td>
+                    <td>@facture.MontantTotal.ToString("C")</td>
+                    <td>
+                        @if (facture.EstPaye)
+                        {
+                            <span class="badge bg-success">Payée</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning text-dark">Non Payée</span>
+                        }
+                    </td>
+                    <td>
+                        <a href="factures/edit/@facture.Id" class="btn btn-secondary btn-sm">Editer</a>
+                        <button class="btn btn-danger btn-sm" @onclick="@(() => DeleteFacture(facture.Id))">Supprimer</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Facture>? factures;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadFactures();
+    }
+
+    private async Task LoadFactures()
+    {
+        factures = await Http.GetFromJsonAsync<List<Facture>>("api/factures");
+    }
+
+    private async Task DeleteFacture(int id)
+    {
+         await Http.DeleteAsync($"api/factures/{id}");
+         await LoadFactures();
+    }
+}

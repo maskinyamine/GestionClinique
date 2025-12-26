@@ -1,0 +1,84 @@
+@page "/factures/create"
+@page "/factures/edit/{id:int}"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>@(Id == 0 ? "Créer" : "Modifier") Facture</PageTitle>
+
+<h1>@(Id == 0 ? "Nouvelle" : "Modifier") Facture</h1>
+
+<EditForm Model="@facture" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="dateFacture" class="form-label">Date de Facturation</label>
+        <InputDate id="dateFacture" class="form-control" @bind-Value="facture.DateFacture" />
+    </div>
+
+    <div class="mb-3">
+        <label for="consultation" class="form-label">Consultation</label>
+        <InputSelect id="consultation" class="form-control" @bind-Value="facture.ConsultationId">
+            <option value="">-- Sélectionner une consultation --</option>
+            @if (consultations != null)
+            {
+                foreach (var consult in consultations)
+                {
+                    <option value="@consult.Id">Consultation #@consult.Id - @consult.DateConsultation.ToString("d")</option>
+                }
+            }
+        </InputSelect>
+    </div>
+
+    <div class="mb-3">
+        <label for="montant" class="form-label">Montant Total</label>
+        <InputNumber id="montant" class="form-control" @bind-Value="facture.MontantTotal" />
+    </div>
+
+    <div class="mb-3 form-check">
+        <InputCheckbox id="paye" class="form-check-input" @bind-Value="facture.EstPaye" />
+        <label for="paye" class="form-check-label">Facture Payée</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a href="factures" class="btn btn-secondary">Annuler</a>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Facture facture = new Facture { DateFacture = DateTime.Now };
+    private List<Consultation>? consultations;
+
+    protected override async Task OnInitializedAsync()
+    {
+        consultations = await Http.GetFromJsonAsync<List<Consultation>>("api/consultations");
+
+        if (Id != 0)
+        {
+            var result = await Http.GetFromJsonAsync<Facture>($"api/factures/{Id}");
+            if (result != null)
+            {
+                facture = result;
+            }
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        // Ensure relationships are null to avoid cycles
+        facture.Consultation = null;
+
+        if (Id == 0)
+        {
+            await Http.PostAsJsonAsync("api/factures", facture);
+        }
+        else
+        {
+            await Http.PutAsJsonAsync($"api/factures/{Id}", facture);
+        }
+
+        Navigation.NavigateTo("factures");
+    }
+}
