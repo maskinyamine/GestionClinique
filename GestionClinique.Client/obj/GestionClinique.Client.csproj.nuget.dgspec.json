@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Client\\GestionClinique.Client.csproj": {}
+    "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/GestionClinique.Client.csproj": {}
   },
   "projects": {
-    "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Client\\GestionClinique.Client.csproj": {
+    "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/GestionClinique.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Client\\GestionClinique.Client.csproj",
+        "projectUniqueName": "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/GestionClinique.Client.csproj",
         "projectName": "GestionClinique.Client",
-        "projectPath": "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Client\\GestionClinique.Client.csproj",
-        "packagesPath": "C:\\Users\\SIGR\\.nuget\\packages\\",
-        "outputPath": "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Client\\obj\\",
+        "projectPath": "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/GestionClinique.Client.csproj",
+        "packagesPath": "/Users/kings/.nuget/packages/",
+        "outputPath": "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SIGR\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/kings/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Shared\\GestionClinique.Shared.csproj": {
-                "projectPath": "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Shared\\GestionClinique.Shared.csproj"
+              "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Shared/GestionClinique.Shared.csproj": {
+                "projectPath": "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Shared/GestionClinique.Shared.csproj"
               }
             }
           }
@@ -83,6 +83,14 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
               "version": "[8.0.22, 8.0.22]"
             }
@@ -92,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.308/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -101,17 +109,17 @@
         }
       }
     },
-    "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Shared\\GestionClinique.Shared.csproj": {
+    "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Shared/GestionClinique.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Shared\\GestionClinique.Shared.csproj",
+        "projectUniqueName": "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Shared/GestionClinique.Shared.csproj",
         "projectName": "GestionClinique.Shared",
-        "projectPath": "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Shared\\GestionClinique.Shared.csproj",
-        "packagesPath": "C:\\Users\\SIGR\\.nuget\\packages\\",
-        "outputPath": "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Shared\\obj\\",
+        "projectPath": "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Shared/GestionClinique.Shared.csproj",
+        "packagesPath": "/Users/kings/.nuget/packages/",
+        "outputPath": "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SIGR\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/kings/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -151,12 +159,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.308/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

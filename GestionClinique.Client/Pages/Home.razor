@@ -1,7 +1,194 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Tableau de Bord - Gestion Clinique</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="dashboard">
+    <div class="welcome-section">
+        <h1>Bienvenue dans le Système de Gestion de Clinique</h1>
+        <p class="welcome-text">
+            Plateforme complète pour la gestion efficace de votre établissement médical.
+        </p>
+    </div>
 
-Welcome to your new app.
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <h3>Gestion des Patients</h3>
+            <p>Enregistrez et suivez les informations de vos patients, leur historique médical et leurs coordonnées.</p>
+            <a href="patients" class="feature-link">Accéder <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-user-md"></i>
+            </div>
+            <h3>Gestion des Médecins</h3>
+            <p>Gérez votre équipe médicale, les spécialités et les disponibilités des praticiens.</p>
+            <a href="medecins" class="feature-link">Accéder <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3>Rendez-Vous</h3>
+            <p>Planifiez et organisez les rendez-vous entre patients et médecins de manière optimale.</p>
+            <a href="rendezvous" class="feature-link">Accéder <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-stethoscope"></i>
+            </div>
+            <h3>Consultations</h3>
+            <p>Enregistrez les consultations médicales, diagnostics et prescriptions.</p>
+            <a href="consultations" class="feature-link">Accéder <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-pills"></i>
+            </div>
+            <h3>Médicaments</h3>
+            <p>Gérez l'inventaire des médicaments, les stocks et les prix.</p>
+            <a href="medicaments" class="feature-link">Accéder <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-bed"></i>
+            </div>
+            <h3>Chambres</h3>
+            <p>Suivez l'occupation des chambres et gérez les hospitalisations.</p>
+            <a href="chambres" class="feature-link">Accéder <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <h3>Facturation</h3>
+            <p>Générez et suivez les factures des patients pour tous les services.</p>
+            <a href="factures" class="feature-link">Accéder <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card info-card">
+            <div class="feature-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <h3>À Propos</h3>
+            <p>Système développé pour optimiser la gestion quotidienne de votre clinique médicale.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .dashboard {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .welcome-section {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: linear-gradient(135deg, #0066CC 0%, #004C99 100%);
+        border-radius: 16px;
+        color: white;
+    }
+
+    .welcome-section h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: white;
+        border: none;
+        padding: 0;
+    }
+
+    .welcome-text {
+        font-size: 1.1rem;
+        opacity: 0.95;
+        color: white;
+        margin: 0;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .feature-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.75rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border: 1px solid #E5E7EB;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 102, 204, 0.15);
+        border-color: #0066CC;
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #0066CC 0%, #004C99 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+    }
+
+    .feature-icon i {
+        font-size: 1.75rem;
+        color: white;
+    }
+
+    .feature-card h3 {
+        font-size: 1.25rem;
+        color: #1A2332;
+        margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+        color: #6B7280;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .feature-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #0066CC;
+        font-weight: 600;
+        text-decoration: none;
+        transition: gap 0.3s ease;
+    }
+
+    .feature-link:hover {
+        gap: 0.75rem;
+        color: #004C99;
+    }
+
+    .info-card {
+        background: linear-gradient(135deg, #F0F7FF 0%, #E8F4FD 100%);
+        border-color: #0066CC;
+    }
+
+    .info-card .feature-icon {
+        background: white;
+    }
+
+    .info-card .feature-icon i {
+        color: #0066CC;
+    }
+</style>

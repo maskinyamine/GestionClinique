@@ -1,16 +1,80 @@
 ﻿@inherits LayoutComponentBase
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+<div class="medical-app">
+    <aside class="medical-sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-logo">
+                <img src="logo_clinique.png" alt="Logo Clinique" class="logo-image" />
+            </div>
         </div>
 
-        <article class="content px-4">
+        <nav class="sidebar-navigation">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <i class="fas fa-home link-icon"></i>
+                <span class="link-label">Tableau de Bord</span>
+            </NavLink>
+
+            <div class="nav-group">
+                <div class="group-title">Gestion des Personnes</div>
+                <NavLink class="nav-link" href="patients">
+                    <i class="fas fa-users link-icon"></i>
+                    <span class="link-label">Patients</span>
+                </NavLink>
+                <NavLink class="nav-link" href="medecins">
+                    <i class="fas fa-user-md link-icon"></i>
+                    <span class="link-label">Médecins</span>
+                </NavLink>
+            </div>
+
+            <div class="nav-group">
+                <div class="group-title">Activités Médicales</div>
+                <NavLink class="nav-link" href="rendezvous">
+                    <i class="fas fa-calendar-alt link-icon"></i>
+                    <span class="link-label">Rendez-Vous</span>
+                </NavLink>
+                <NavLink class="nav-link" href="consultations">
+                    <i class="fas fa-stethoscope link-icon"></i>
+                    <span class="link-label">Consultations</span>
+                </NavLink>
+            </div>
+
+            <div class="nav-group">
+                <div class="group-title">Ressources</div>
+                <NavLink class="nav-link" href="medicaments">
+                    <i class="fas fa-pills link-icon"></i>
+                    <span class="link-label">Médicaments</span>
+                </NavLink>
+                <NavLink class="nav-link" href="chambres">
+                    <i class="fas fa-bed link-icon"></i>
+                    <span class="link-label">Chambres</span>
+                </NavLink>
+            </div>
+
+            <div class="nav-group">
+                <div class="group-title">Finance</div>
+                <NavLink class="nav-link" href="factures">
+                    <i class="fas fa-file-invoice-dollar link-icon"></i>
+                    <span class="link-label">Factures</span>
+                </NavLink>
+            </div>
+        </nav>
+
+        <div class="sidebar-user">
+            <div class="user-profile">
+                <span class="user-icon">
+                    <i class="fas fa-user-circle"></i>
+                </span>
+                <div class="user-text">
+                    <p class="user-name">Administrateur</p>
+                    <p class="user-title">Admin</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="medical-main">
+        <div class="main-wrapper">
             @Body
-        </article>
+        </div>
     </main>
 </div>

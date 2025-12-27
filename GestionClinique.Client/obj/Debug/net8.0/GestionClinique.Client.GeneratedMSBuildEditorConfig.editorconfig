@@ -13,97 +13,89 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = GestionClinique.Client
 build_property.RootNamespace = GestionClinique.Client
-build_property.ProjectDir = H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Client\
+build_property.ProjectDir = /Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = H:\Amine_maskiny\gestion-clinique-app\GestionClinique.Client
+build_property.MSBuildProjectDirectory = /Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/App.razor]
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/ChambresEdit.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhbWJyZXNFZGl0LnJhem9y
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/ChambresList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhbWJyZXNMaXN0LnJhem9y
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/ChambresEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2hhbWJyZXNFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/ConsultationsEdit.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGF0aW9uc0VkaXQucmF6b3I=
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/ChambresList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2hhbWJyZXNMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/ConsultationsList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGF0aW9uc0xpc3QucmF6b3I=
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/ConsultationsEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29uc3VsdGF0aW9uc0VkaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/ConsultationsList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29uc3VsdGF0aW9uc0xpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/FacturesEdit.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFjdHVyZXNFZGl0LnJhem9y
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/FacturesEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmFjdHVyZXNFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/FacturesList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFjdHVyZXNMaXN0LnJhem9y
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/FacturesList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmFjdHVyZXNMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/MedecinsEdit.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVkZWNpbnNFZGl0LnJhem9y
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/MedecinsEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVkZWNpbnNFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/MedecinsList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVkZWNpbnNMaXN0LnJhem9y
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/MedecinsList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVkZWNpbnNMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/MedicamentsEdit.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVkaWNhbWVudHNFZGl0LnJhem9y
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/MedicamentsEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVkaWNhbWVudHNFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/MedicamentsList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVkaWNhbWVudHNMaXN0LnJhem9y
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/MedicamentsList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVkaWNhbWVudHNMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/PatientEdit.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF0aWVudEVkaXQucmF6b3I=
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/PatientEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudEVkaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/Patients.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF0aWVudHMucmF6b3I=
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/Patients.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/RendezVousEdit.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVuZGV6Vm91c0VkaXQucmF6b3I=
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/RendezVousEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVuZGV6Vm91c0VkaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/RendezVousList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVuZGV6Vm91c0xpc3QucmF6b3I=
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Pages/RendezVousList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVuZGV6Vm91c0xpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/_Imports.razor]
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-f5tvf7n9z6
-
-[H:/Amine_maskiny/gestion-clinique-app/GestionClinique.Client/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-4t5xza7sz5
+[/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Client/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-genitp73g2

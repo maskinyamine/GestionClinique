@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "mZ0ZNfrugqs=",
+  "dgSpecHash": "QDcKSZ3djN0=",
   "success": true,
-  "projectFilePath": "H:\\Amine_maskiny\\gestion-clinique-app\\GestionClinique.Shared\\GestionClinique.Shared.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/kings/Documents/GestionClinique/GestionClinique/GestionClinique.Shared/GestionClinique.Shared.csproj",
+  "expectedPackageFiles": [
+    "/Users/kings/.nuget/packages/microsoft.netcore.app.ref/8.0.22/microsoft.netcore.app.ref.8.0.22.nupkg.sha512",
+    "/Users/kings/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.22/microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512"
+  ],
   "logs": []
 }
